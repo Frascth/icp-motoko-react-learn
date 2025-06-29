@@ -5,6 +5,7 @@
   },
   "name": "hello",
   "scripts": {
+    "watch:mo": "ls src/hello_backend/*.mo | entr -r dfx deploy",
     "build": "npm run build --workspaces --if-present",
     "prebuild": "npm run prebuild --workspaces --if-present",
     "pretest": "npm run prebuild --workspaces --if-present",

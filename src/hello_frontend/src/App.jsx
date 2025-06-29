@@ -15,12 +15,9 @@ function App() {
 
   return (
     <main>
-      <img src="/logo2.svg" alt="DFINITY logo" />
-      <br />
-      <br />
       <form action="#" onSubmit={handleSubmit}>
         <label htmlFor="name">Enter your name: &nbsp;</label>
-        <input id="name" alt="Name" type="text" />
+        <input id="name" alt="Name" type="text" className="rounded border border-blue-500 px-4 py-4"/>
         <button type="submit">Click Me!</button>
       </form>
       <section id="greeting">{greeting}</section>
