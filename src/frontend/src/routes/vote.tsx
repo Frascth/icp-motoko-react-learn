@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react';
-import { vote } from '../../declarations/vote';
+import { vote } from '../../../declarations/vote';
+import { createFileRoute } from '@tanstack/react-router';
 
-function App() {
+export const Route = createFileRoute('/vote')({
+  component: Vote,
+})
+
+function Vote() {
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [voteLoading, setVoteLoading] = useState<string|null>(null);
@@ -71,4 +76,4 @@ function App() {
   );
 }
 
-export default App;
+export default Vote;
