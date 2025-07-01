@@ -7,10 +7,6 @@ actor {
 
   var votes : RBTree.RBTree<Text, Nat> = RBTree.RBTree(Text.compare);
 
-  public query func greet(name : Text): async Text {
-    return "Hello " # name # " !";
-  };
-
   public query func getVotes() : async [(Text, Nat)] {
     return Iter.toArray(votes.entries());
   };

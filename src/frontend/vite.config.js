@@ -4,6 +4,7 @@ import { defineConfig } from 'vite';
 import environment from 'vite-plugin-environment';
 import dotenv from 'dotenv';
 import tailwindcss from '@tailwindcss/vite';
+import { tanstackRouter } from '@tanstack/router-plugin/vite';
 
 dotenv.config({ path: '../../.env' });
 
@@ -27,6 +28,10 @@ export default defineConfig({
     },
   },
   plugins: [
+    tanstackRouter({
+      target: 'react',
+      autoCodeSplitting: true,
+    }),
     react(),
     tailwindcss(),
     environment("all", { prefix: "CANISTER_" }),

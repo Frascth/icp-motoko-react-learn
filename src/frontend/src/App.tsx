@@ -1,15 +1,16 @@
 import { useEffect, useState } from 'react';
-import { backend } from 'declarations/backend';
+import { vote } from '../../declarations/vote';
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [voteLoading, setVoteLoading] = useState(null);
-  const [votes, setVotes] = useState({});
+
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [voteLoading, setVoteLoading] = useState<string|null>(null);
+  const [votes, setVotes] = useState<[string, bigint][]>([]);
 
   useEffect(() => {
     const fetchVotes = async () => {
       try {
-        const response = await backend.resetVotes();
+        const response = await vote.resetVotes();
 
         setVotes(response);
       } catch (error) {
@@ -22,14 +23,14 @@ function App() {
     fetchVotes();
   }, []);
 
-  async function handleVote(category) {
+  async function handleVote(category:string) {
     setVoteLoading(category);
 
-    const response = await backend.vote(category);
+    const response = await vote.vote(category);
 
     setVotes(response);
 
-    setVoteLoading(null);
+    setVoteLoading('');
   }
 
   if (isLoading) {
