@@ -18,8 +18,8 @@
     "types": ["vite/client"],
     "baseUrl": ".",
     "paths": {
-      "declarations/*": [".dfx/local/canisters/*"]
+      "declarations/*": ["../declarations/*"]
     }
   },
-  "include": ["src", ".dfx/local/canisters"]
+  "include": ["src", "../declarations/"]
 }
