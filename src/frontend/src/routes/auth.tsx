@@ -1,9 +1,6 @@
 import React, { useState, useEffect, ReactNode } from 'react';
 import { AuthClient } from '@dfinity/auth-client';
 import { ActorSubclass } from '@dfinity/agent';
-// import { createActor } from '../../../declarations/internet_identity';
-// import { canisterId } from '../../../declarations/internet_identity/index.js';
-// import { _SERVICE } from 'declarations/internet_identity/internet_identity.did';
 import { createActor } from '../../../declarations/authentication';
 import { canisterId } from '../../../declarations/authentication/index.js';
 import { _SERVICE } from 'declarations/authentication/authentication.did';
@@ -33,7 +30,7 @@ interface AppState {
 }
 
 // Reusable button component
-const Button = ({ onClick, children }: ButtonProps) => <button onClick={onClick}>{children}</button>;
+const Button = ({ onClick, children }: ButtonProps) => <button onClick={onClick} className="px-4 py-2 rounded border cursor-pointer">{children}</button>;
 
 function Auth() {
   // Initialize auth client
@@ -104,7 +101,7 @@ function Auth() {
   };
 
   return (
-    <div>
+    <div className='space-x-4'>
       <h1>Who Am I?</h1>
       <div id="info-box" className="info-box">
         <div className="info-content">
